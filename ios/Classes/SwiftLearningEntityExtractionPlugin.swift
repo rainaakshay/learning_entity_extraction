@@ -101,13 +101,13 @@ result(annotations)
     })
   }
 
-  func listModel(result: FlutterResult) {
+  func listModel(result: @escaping FlutterResult) {
     let modelManager = ModelManager.modelManager()
     let models = modelManager.downloadedEntityExtractionModels.map { $0.modelIdentifier }
     result(models)
   }
 
-  func checkModel(call: FlutterMethodCall, result: FlutterResult) {
+  func checkModel(call: FlutterMethodCall, result: @escaping FlutterResult) {
     guard let args = call.arguments as? Dictionary<String, AnyObject> else {
       result(FlutterError(
         code: "NOARGUMENTS", 
@@ -133,7 +133,7 @@ result(annotations)
     result(isDownloaded)
   }
 
-  func downloadModel(call: FlutterMethodCall, result: FlutterResult) {
+  func downloadModel(call: FlutterMethodCall, result: @escaping FlutterResult) {
     guard let args = call.arguments as? Dictionary<String, AnyObject> else {
       result(FlutterError(
         code: "NOARGUMENTS", 
@@ -163,7 +163,7 @@ result(annotations)
     result(true)
   }
 
-  func deleteModel(call: FlutterMethodCall, result: FlutterResult) {
+  func deleteModel(call: FlutterMethodCall, result:  @escaping FlutterResult) {
     guard let args = call.arguments as? Dictionary<String, AnyObject> else {
       result(FlutterError(
         code: "NOARGUMENTS", 
